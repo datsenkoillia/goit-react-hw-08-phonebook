@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import { InputLabel, InputField, SubmitButton, Form } from './styled';
 
-
 import { useSelector, useDispatch } from 'react-redux';
-import { selectContacts } from 'redux/contactsSlice';
-import { addContact } from 'redux/contactsOperations';
+import { selectContacts } from 'redux/contacts/contactsSlice';
+import { addContact } from 'redux/contacts/contactsOperations';
 
 export function ContactForm() {
   const contacts = useSelector(selectContacts);
@@ -30,7 +29,8 @@ export function ContactForm() {
     const newContact = {
       // id: nanoid(),
       name,
-      phone,
+      number: phone,
+      // phone,
     };
 
     const isExistContact = contacts.some(contact => contact.name === name);

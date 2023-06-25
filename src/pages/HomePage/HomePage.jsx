@@ -3,12 +3,25 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { selectIsLoggedIn } from 'redux/auth/authSlice';
 import { selectUser } from 'redux/auth/authSlice';
-import { selectIsLoading } from 'redux/contacts/contactsSlice';
+import { StyledLink } from './HomePage.styled';
 
 const HomePage = () => {
   const userData = useSelector(selectUser);
   const isLoggedIn = useSelector(selectIsLoggedIn);
-  
+
+  const pleaseLogin = (
+    <>
+      Please
+      <b>
+        <StyledLink to="login"> Login </StyledLink>
+      </b>
+      to access your account, or
+      <b>
+        <StyledLink to="register"> Sign Up </StyledLink>
+      </b>
+      for new.
+    </>
+  );
 
   return (
     <>
@@ -20,9 +33,7 @@ const HomePage = () => {
         Welcome to Phonebook App!
       </Typography>
       <Typography variant="h4" align="center" sx={{ color: '#1976d2' }}>
-        {!isLoggedIn
-          ? 'Please Login to access your account, or Sign Up for new.'
-          : `Hello, ${userData.name}!`}
+        {!isLoggedIn ? pleaseLogin : `Hello, ${userData.name}!`}
       </Typography>
     </>
   );

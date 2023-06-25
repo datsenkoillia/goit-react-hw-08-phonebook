@@ -6,23 +6,20 @@ export const StyledNavLink = styled(NavLink)`
   text-decoration: none;
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-weight: 400;
-
+  padding: 15px 0 15px;
+ 
   &:hover,
   &:focus {
     text-decoration: underline;
   }
 
   &.active {
-    color: '#1976d2';
+    color: #1976d2;
   }
-  /* &.active {
-    color: 'green';
-  } */
 `;
 
 export const StyledNavContainer = styled.nav`
-  /* padding: 5px; */
   display: flex;
-  gap: 20px;
+  gap: 30px;
   align-items: baseline;
 `;

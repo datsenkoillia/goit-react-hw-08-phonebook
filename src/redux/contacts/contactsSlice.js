@@ -20,7 +20,6 @@ const handleFulfilledAddContact = (state, { payload }) => {
   state.contacts.isLoading = false;
   state.contacts.error = null;
   state.contacts.items.push(payload);
-  // state.contacts.items.unshift(payload);
 };
 
 const handleFulfilledDeleteContact = (state, { payload }) => {
@@ -65,8 +64,3 @@ export const selectContacts = state => state.contacts.contacts.items;
 export const selectIsLoading = state => state.contacts.contacts.isLoading;
 export const selectFilter = state => state.contacts.filter;
 
-// export const selectContacts = state => {
-//   return state.contacts.contacts.items.toSorted((a, b) =>
-//     a.name.localeCompare(b.name)
-//   );
-// };

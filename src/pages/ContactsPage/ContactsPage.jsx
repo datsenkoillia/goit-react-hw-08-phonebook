@@ -1,22 +1,32 @@
 import { ContactForm } from 'components/ContactForm';
 import { Filter } from 'components/Filter';
 import { ContactList } from 'components/ContactList';
-import { Typography } from '@mui/material';
 import { useSelector } from 'react-redux';
-import { selectIsLoading } from 'redux/contacts/contactsSlice';
+import { selectContacts, selectIsLoading } from 'redux/contacts/contactsSlice';
+import { StyledTypography } from './ContactsPage.styled';
 
 const ContactsPage = () => {
-   const isLoading = useSelector(selectIsLoading);
+  const isLoading = useSelector(selectIsLoading);
+  const contacts = useSelector(selectContacts);
+
+console.log(contacts.length);
+
   return (
     <>
-      <Typography variant="h3" align="center" sx={{ color: '#1976d2' }}>
+      <StyledTypography variant="h3" align="center">
         Phonebook
-      </Typography>
+      </StyledTypography>
       <ContactForm />
-      <Typography variant="h4" align="center" sx={{ color: '#1976d2' }}>
+      <StyledTypography variant="h4" align="center">
         {!isLoading ? 'Contacts' : 'Loading...'}
-      </Typography>
-      <Filter />
+      </StyledTypography>
+      {contacts.length > 0 ? (
+        <Filter />
+      ) : (
+        <StyledTypography variant="h5" align="center">
+          There are no contacts in your phonebook yet. Please add a contact.
+        </StyledTypography>
+      )}
       <ContactList />
     </>
   );

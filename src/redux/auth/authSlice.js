@@ -1,19 +1,27 @@
 import { createSlice } from '@reduxjs/toolkit';
-// import { persistReducer } from 'redux-persist';
-// import storage from 'redux-persist/lib/storage';
 import { register, logIn, logOut, refreshUser } from './authOperations';
-// import { useSelector } from 'react-redux';
+import { toast } from 'react-hot-toast';
 
 const handleFulfilledRegister = (state, { payload }) => {
   state.user = payload.user;
   state.token = payload.token;
   state.isLoggedIn = true;
+  toast.success(`Welcome, ${state.user.name}`);
 };
 
-const handleFulfilledLogin = (state, { payload }) => {
+const handleRejectedRegister = () => {
+  toast.error('Error Register');
+};
+
+const handleRejectedLogIn = () => {
+  toast.error('Error Login. Wrong email or password, or user does not exist');
+};
+
+const handleFulfilledLogIn = (state, { payload }) => {
   state.user = payload.user;
   state.token = payload.token;
   state.isLoggedIn = true;
+  toast.success(`Welcome, ${state.user.name}`);
 };
 
 const handleFulfilledLogOut = state => {
@@ -49,7 +57,9 @@ const authSlice = createSlice({
   extraReducers: builder => {
     builder
       .addCase(register.fulfilled, handleFulfilledRegister)
-      .addCase(logIn.fulfilled, handleFulfilledLogin)
+      .addCase(register.rejected, handleRejectedRegister)
+      .addCase(logIn.fulfilled, handleFulfilledLogIn)
+      .addCase(logIn.rejected, handleRejectedLogIn)
       .addCase(logOut.fulfilled, handleFulfilledLogOut)
       .addCase(refreshUser.fulfilled, handleFulfilledRefresh)
       .addCase(refreshUser.pending, handlePendingRefresh)
@@ -57,34 +67,10 @@ const authSlice = createSlice({
   },
 });
 
-// const persistConfigAuth = {
-//   key: 'auth',
-//   storage,
-//   whitelist: ['token'],
-// };
-
-// export const persistedAuthReducer = persistReducer(
-//   persistConfigAuth,
-//   authSlice.reducer
-// );
 
 export const authReducer = authSlice.reducer;
-
-// export const authReducer = authSlice.reducer;
 
 export const selectIsLoggedIn = state => state.auth.isLoggedIn;
 export const selectUser = state => state.auth.user;
 export const selectIsRefreshing = state => state.auth.isRefreshing;
 
-
-// export const useAuth = () => {
-//   const isLoggedIn = useSelector(selectIsLoggedIn);
-//   const isRefreshing = useSelector(selectIsRefreshing);
-//   const user = useSelector(selectUser);
-
-//   return {
-//     isLoggedIn,
-//     isRefreshing,
-//     user,
-//   };
-// };

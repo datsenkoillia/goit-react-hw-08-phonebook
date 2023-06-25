@@ -1,41 +1,11 @@
 import styled from 'styled-components';
 
-export const InputLabel = styled.label`
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-bottom: 5px;
-`;
-
-export const InputField = styled.input`
-  width: 200px;
-  margin-bottom: 20px;
-`;
-
-export const SubmitButton = styled.button`
-  font-weight: 600;
-  height: 24px;
-  border-radius: 4px;
-  padding: 0 15px;
-  transition: 300ms;
-  border: none;
-  background-color: rgb(173, 173, 173);
-  cursor: pointer;
-
-  &:hover,
-  &:focus {
-    color: red;
-    background-color: #000;
-  }
-`;
-
 export const Form = styled.form`
-  /* display: flex;
-  flex-direction: column;
-  gap: 20px; */
   padding: 20px;
-  border: 2px solid #1976d2;
-  /* max-width: 400px; */
+  border: 1px solid #1976d2;
   margin: 0 auto;
-  /* margin-bottom: 20px; */
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
 `;
+
+

@@ -1,5 +1,4 @@
 import { TextField } from '@mui/material';
-import { InputLabel, InputField } from './styled';
 import { useSelector, useDispatch } from 'react-redux';
 import { filtered, selectFilter } from 'redux/contacts/contactsSlice';
 
@@ -12,8 +11,6 @@ export const Filter = () => {
   };
 
   return (
-    // <InputLabel>
-    //   Find contacts by name
     <TextField
       type="text"
       value={filter}
@@ -21,6 +18,5 @@ export const Filter = () => {
       label="Find contacts by name"
       size="small"
     />
-    // </InputLabel>
   );
 };

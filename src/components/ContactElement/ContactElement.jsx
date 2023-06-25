@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
-import { ContactItem, ContactButton } from './ContactElement.styled';
-import { Button, IconButton, Typography } from '@mui/material';
+import { ContactItem } from './ContactElement.styled';
+import { Button, Typography } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 export const ContactElement = ({ id, name, number, deleteContact }) => {
   return (
     <ContactItem key={id}>
-      <Typography>
+      <Typography sx={{ maxWidth: '400px' }}>
         <b>{name}: </b>
         {number}
       </Typography>
@@ -16,11 +16,6 @@ export const ContactElement = ({ id, name, number, deleteContact }) => {
           variant="contained"
           onClick={() => deleteContact(id)}
           startIcon={<DeleteIcon />}
-          sx={{
-            // '&:hover': {
-            //   backgroundColor: '#fff000',
-            // },
-          }}
         >
           Delete
         </Button>

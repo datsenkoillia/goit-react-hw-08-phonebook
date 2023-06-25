@@ -1,4 +1,3 @@
-import React from 'react';
 import { StyledNavContainer, StyledNavLink } from './Navigation.styled';
 import { useSelector } from 'react-redux';
 import { selectIsLoggedIn } from 'redux/auth/authSlice';

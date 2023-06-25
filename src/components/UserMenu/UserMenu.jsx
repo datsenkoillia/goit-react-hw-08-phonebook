@@ -1,4 +1,3 @@
-import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { logOut } from 'redux/auth/authOperations';
 import { selectUser } from 'redux/auth/authSlice';
@@ -15,7 +14,6 @@ const UserMenu = () => {
 
   return (
     <StyledUserMenuContainer>
-      {/* <p>{userData.name}</p> */}
       <Typography>{userData.email}</Typography>
       <Button
         onClick={handleLogOut}

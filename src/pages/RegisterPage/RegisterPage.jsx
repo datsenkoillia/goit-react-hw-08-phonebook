@@ -1,10 +1,12 @@
-import { RegisterForm } from 'components/RegisterForm/RegisterForm';
-import React from 'react';
+import { RegisterForm } from 'components/RegisterForm';
+import { StyledTypography } from './RegisterPage.styled';
 
 const RegisterPage = () => {
   return (
     <>
-      <div>RegisterPage</div>
+      <StyledTypography variant="h4" align="center">
+        Please enter data for Register:
+      </StyledTypography>
       <RegisterForm />
     </>
   );

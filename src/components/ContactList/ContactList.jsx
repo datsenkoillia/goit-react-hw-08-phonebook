@@ -8,7 +8,6 @@ import {
 import {
   selectContacts,
   selectFilter,
-  selectIsLoading,
 } from 'redux/contacts/contactsSlice';
 
 import { List } from '@mui/material';

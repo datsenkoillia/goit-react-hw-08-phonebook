@@ -11,6 +11,7 @@ import {
 } from 'redux/contacts/contactsSlice';
 
 import { List } from '@mui/material';
+import { StyledTypography } from './ContactsList.styled';
 
 export const ContactList = () => {
   const contacts = useSelector(selectContacts);
@@ -35,17 +36,23 @@ export const ContactList = () => {
 
   return (
     <>
-      <List>
-        {contactList.map(({ id, name, number }) => (
-          <ContactElement
-            key={id}
-            id={id}
-            name={name}
-            number={number}
-            deleteContact={delContact}
-          />
-        ))}
-      </List>
+      {contactList.length > 0 ? (
+        <List>
+          {contactList.map(({ id, name, number }) => (
+            <ContactElement
+              key={id}
+              id={id}
+              name={name}
+              number={number}
+              deleteContact={delContact}
+            />
+          ))}
+        </List>
+      ) : (
+        <StyledTypography variant="h5" align="center">
+          No matches
+        </StyledTypography>
+      )}
     </>
   );
 };

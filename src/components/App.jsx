@@ -6,7 +6,7 @@ import RegisterPage from 'pages/RegisterPage/RegisterPage';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectIsRefreshing } from 'redux/auth/authSlice';
 import { useEffect } from 'react';
-import { logOut, refreshUser } from 'redux/auth/authOperations';
+import { refreshUser } from 'redux/auth/authOperations';
 import HomePage from 'pages/HomePage/HomePage';
 import { PrivateRoute, RestrictedRoute } from './Routes/Routes';
 import { Toaster } from 'react-hot-toast';

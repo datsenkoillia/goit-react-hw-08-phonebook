@@ -1,23 +1,30 @@
 import React from 'react';
-import { toast } from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';
 import { logOut } from 'redux/auth/authOperations';
 import { selectUser } from 'redux/auth/authSlice';
+import { StyledUserMenuContainer } from './UserMenu.styled';
+import { Button, Typography } from '@mui/material';
+import LogoutIcon from '@mui/icons-material/Logout';
+
 
 const UserMenu = () => {
   const dispatch = useDispatch();
   const userData = useSelector(selectUser);
-  // console.log(userData);
 
-  const handleLogOut = () => dispatch(logOut())
-  // const handleLogOut = () => { toast.success('Welcome'); console.log('toast');};
+  const handleLogOut = () => dispatch(logOut());
 
   return (
-    <div>
-      <p>{userData.name}</p>
-      <p>{userData.email}</p>
-      <button onClick={handleLogOut}>Logout</button>
-    </div>
+    <StyledUserMenuContainer>
+      {/* <p>{userData.name}</p> */}
+      <Typography>{userData.email}</Typography>
+      <Button
+        onClick={handleLogOut}
+        variant="contained"
+        endIcon={<LogoutIcon />}
+      >
+        Logout
+      </Button>
+    </StyledUserMenuContainer>
   );
 };
 

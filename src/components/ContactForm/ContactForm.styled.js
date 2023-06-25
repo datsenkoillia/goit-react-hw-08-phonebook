@@ -30,8 +30,12 @@ export const SubmitButton = styled.button`
 `;
 
 export const Form = styled.form`
+  /* display: flex;
+  flex-direction: column;
+  gap: 20px; */
   padding: 20px;
-  border: 2px solid black;
-  max-width: 400px;
-  margin-bottom: 20px;
+  border: 2px solid #1976d2;
+  /* max-width: 400px; */
+  margin: 0 auto;
+  /* margin-bottom: 20px; */
 `;

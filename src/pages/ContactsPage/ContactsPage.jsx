@@ -1,17 +1,25 @@
 import { ContactForm } from 'components/ContactForm';
 import { Filter } from 'components/Filter';
 import { ContactList } from 'components/ContactList';
+import { Typography } from '@mui/material';
+import { useSelector } from 'react-redux';
+import { selectIsLoading } from 'redux/contacts/contactsSlice';
 
 const ContactsPage = () => {
+   const isLoading = useSelector(selectIsLoading);
   return (
     <>
-      <h1>Phonebook</h1>
+      <Typography variant="h3" align="center" sx={{ color: '#1976d2' }}>
+        Phonebook
+      </Typography>
       <ContactForm />
-      <h2>Contacts</h2>
+      <Typography variant="h4" align="center" sx={{ color: '#1976d2' }}>
+        {!isLoading ? 'Contacts' : 'Loading...'}
+      </Typography>
       <Filter />
       <ContactList />
     </>
   );
-}
+};
 
-export default ContactsPage
+export default ContactsPage;

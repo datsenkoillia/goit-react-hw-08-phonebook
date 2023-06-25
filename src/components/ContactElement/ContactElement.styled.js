@@ -1,7 +1,22 @@
 import styled from 'styled-components';
 
 export const ContactItem = styled.li`
-  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  /* max-width: 400px; */
+  /* margin-bottom: 10px; */
+  padding: 5px;
+  padding-left: 10px;
+  margin: 2px;
+
+  border: 1px solid #1976d2;
+  border-radius: 5px;
+
+  &:nth-child(even) {
+    background-color: rgb(216, 216, 216);
+    /* outline: 2px solid #1976d2; */
+  }
 `;
 
 export const ContactButton = styled.button`

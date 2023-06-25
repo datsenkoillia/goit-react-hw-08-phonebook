@@ -11,9 +11,10 @@ import {
   selectIsLoading,
 } from 'redux/contacts/contactsSlice';
 
+import { List } from '@mui/material';
+
 export const ContactList = () => {
   const contacts = useSelector(selectContacts);
-  const isLoading = useSelector(selectIsLoading);
   const filter = useSelector(selectFilter);
   const dispatch = useDispatch();
 
@@ -35,8 +36,7 @@ export const ContactList = () => {
 
   return (
     <>
-      {isLoading && <p>Loading...</p>}
-      <ul>
+      <List>
         {contactList.map(({ id, name, number }) => (
           <ContactElement
             key={id}
@@ -46,7 +46,7 @@ export const ContactList = () => {
             deleteContact={delContact}
           />
         ))}
-      </ul>
+      </List>
     </>
   );
 };

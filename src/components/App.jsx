@@ -15,10 +15,14 @@ export function App() {
   const isRefreshing = useSelector(selectIsRefreshing);
   const dispatch = useDispatch();
 
+  // useEffect(() => {
+  //   dispatch(refreshUser())
+  //     .unwrap()
+  //     .catch(() => dispatch(logOut()));
+  // }, [dispatch]);
+
   useEffect(() => {
-    dispatch(refreshUser())
-      .unwrap()
-      .catch(() => dispatch(logOut()));
+    dispatch(refreshUser());
   }, [dispatch]);
 
   return isRefreshing ? (

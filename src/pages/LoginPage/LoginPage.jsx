@@ -1,4 +1,4 @@
-import { LoginForm } from 'components/LoginForm/LoginForm';
+import { LoginForm } from 'components/LoginForm';
 import { StyledTypography } from './LoginPage.styled';
 
 const LoginPage = () => {
@@ -7,7 +7,6 @@ const LoginPage = () => {
       <StyledTypography variant="h4" align="center">
         Please enter data for Login:
       </StyledTypography>
-
       <LoginForm />
     </>
   );

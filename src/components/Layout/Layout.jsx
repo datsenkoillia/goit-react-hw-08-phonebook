@@ -7,7 +7,6 @@ const Layout = () => {
     <Wrap>
       <Container>
         <StyledAppBar />
-
         <PagesContainer>
           <Outlet />
         </PagesContainer>

@@ -9,8 +9,6 @@ const ContactsPage = () => {
   const isLoading = useSelector(selectIsLoading);
   const contacts = useSelector(selectContacts);
 
-console.log(contacts.length);
-
   return (
     <>
       <StyledTypography variant="h3" align="center">
@@ -24,10 +22,10 @@ console.log(contacts.length);
         <Filter />
       ) : (
         <StyledTypography variant="h5" align="center">
-          There are no contacts in your phonebook yet. Please add a contact.
+          There are no contacts in your Phonebook yet. Please add a contact.
         </StyledTypography>
       )}
-      <ContactList />
+       <ContactList />
     </>
   );
 };

@@ -5,10 +5,7 @@ import {
   deleteContact,
   fetchContacts,
 } from 'redux/contacts/contactsOperations';
-import {
-  selectContacts,
-  selectFilter,
-} from 'redux/contacts/contactsSlice';
+import { selectContacts, selectFilter } from 'redux/contacts/contactsSlice';
 
 import { List } from '@mui/material';
 import { StyledTypography } from './ContactsList.styled';
@@ -29,6 +26,7 @@ export const ContactList = () => {
   };
 
   const contactList = filteredContacts();
+  const isNoMatches = contacts.length > 0 && contactList.length === 0;
 
   useEffect(() => {
     dispatch(fetchContacts());
@@ -36,7 +34,7 @@ export const ContactList = () => {
 
   return (
     <>
-      {contactList.length > 0 ? (
+      {contactList.length > 0 && (
         <List>
           {contactList.map(({ id, name, number }) => (
             <ContactElement
@@ -48,7 +46,8 @@ export const ContactList = () => {
             />
           ))}
         </List>
-      ) : (
+      )}
+      {isNoMatches && (
         <StyledTypography variant="h5" align="center">
           No matches
         </StyledTypography>

@@ -5,7 +5,7 @@ export const PagesContainer = styled.main`
   flex-direction: column;
   gap: 20px;
 
-  max-width: 600px;
+  max-width: 800px;
   margin: 0 auto;
 `;
 

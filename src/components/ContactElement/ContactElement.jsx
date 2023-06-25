@@ -1,15 +1,15 @@
 import PropTypes from 'prop-types';
-import { ContactItem } from './ContactElement.styled';
-import { Button, Typography } from '@mui/material';
+import { ContactItem, StyledTypography } from './ContactElement.styled';
+import { Button} from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 export const ContactElement = ({ id, name, number, deleteContact }) => {
   return (
     <ContactItem key={id}>
-      <Typography sx={{ maxWidth: '400px' }}>
+      <StyledTypography>
         <b>{name}: </b>
         {number}
-      </Typography>
+      </StyledTypography>
       <span>
         <Button
           type="button"

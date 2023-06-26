@@ -14,7 +14,7 @@ const UserMenu = () => {
 
   return (
     <StyledUserMenuContainer>
-      <Typography>{userData.email}</Typography>
+      <Typography>{userData.name}</Typography>
       <Button
         onClick={handleLogOut}
         variant="contained"
